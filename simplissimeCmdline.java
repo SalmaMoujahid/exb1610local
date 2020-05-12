@@ -127,7 +127,8 @@ public class simplissimeCmdline {
 					System.out.println( display ) ;
 					
 					System.out.println( "\n\nMettre a jour encore le code postal de MARRAKECH dans la base\n" ) ;
-					display = txn.updateVille ( 142, "MARRAKECH", 40160 ) ;
+					//display = txn.updateVille ( 142, "MARRAKECH", 40160 ) ;
+					display = txn.updateVille ("MARRAKECH", 40160 ) ;
 					System.out.println( display ) ;
 					System.out.println( "\n\nNouvel etat de la base (3)\n" ) ;
 					display = txn.list () ;
