@@ -347,6 +347,7 @@ public class txnscript
 	////////////////////////////
 	
 	// fonction existante refactorée pour EXB1613
+	/*
     public static String updateVille (Integer id, String nom, Integer codePostal)
     {
         String result = "" ;
@@ -380,7 +381,7 @@ public class txnscript
 		result = result + saut_de_ligne ;		
 		return result ;
     }
-
+*/
 
 
     // creation fonction pour EXB1613
