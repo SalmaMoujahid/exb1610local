@@ -385,7 +385,7 @@ public class txnscript
 
 
     // creation fonction pour EXB1613
-    public static String updateVilleByName (String nom, Integer codePostal)
+    public static String updateVille (String nom, Integer codePostal)
     {
         String result = "" ;
 		String sql = "UPDATE Villes SET code_postal = ? WHERE nom = ?" ;
