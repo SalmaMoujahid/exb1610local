@@ -394,7 +394,7 @@ public class txnscript
 				PreparedStatement pstmt = cnx.prepareStatement(sql) ;
 				pstmt.setString(1, nom);
 				pstmt.setDouble(2, codePostal);
-				pstmt.setInt(3, id);
+				//pstmt.setInt(3, id);
 				pstmt.setDouble(1, codePostal);
 				pstmt.setString(2, nom);
 				pstmt.executeUpdate();
