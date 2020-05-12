@@ -52,8 +52,11 @@ public class simplissimeCmdline {
 					String nom = cl.getOptionValue("nom") ;
 					String sCp = cl.getOptionValue("cp") ;
 					Integer cp = Integer.parseInt(sCp);
-					display = txn.updateVille ( id, nom, cp ) ;
-					System.out.println( display ) ;
+					
+		    			//display = txn.updateVille ( id, nom, cp ) ;
+		    			display = txn.updateVille (  nom, cp ) ;
+					
+		    			System.out.println( display ) ;
             }
 
 			// java -cp ".\postgresql-42.2.5.jar;commons-cli-1.4.jar;." simplissimeCmdline -e
@@ -116,7 +119,8 @@ public class simplissimeCmdline {
 					System.out.println( display ) ;
 					
 					System.out.println( "\n\nMettre a jour le code postal de MARRAKECH dans la base\n" ) ;
-					display = txn.updateVille ( 142, "MARRAKECH", 40160000 ) ;
+					//display = txn.updateVille ( 142, "MARRAKECH", 40160000 ) ;
+					display = txn.updateVille ("MARRAKECH", 40160000 ) ;
 					System.out.println( display ) ;
 					System.out.println( "\n\nNouvel etat de la base (2)\n" ) ;
 					display = txn.list () ;
