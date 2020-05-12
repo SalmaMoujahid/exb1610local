@@ -404,7 +404,7 @@ public class txnscript
 			System.out.println(e.getMessage());
 		}
 
-		result = result + id ;
+		//result = result + id ;
 		result = result + "/" + codePostal ;
 		result = result + "/" + nom ;
 		result = result + saut_de_ligne ;		
