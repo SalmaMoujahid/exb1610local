@@ -310,8 +310,7 @@ public class txnscript
 	    
 		return result ;
     }
-
-	//update ville by name
+/*update ville by name
 	
     public static String updateVille (String nom, Integer codePostal)
     {
@@ -326,10 +325,10 @@ public class txnscript
 				pstmt.setString(1, nom);
 				pstmt.setDouble(2, codePostal);
 				pstmt.setInt(3, id);
-			///
+			
 				pstmt.setDouble(1, codePostal);
 				pstmt.setString(2, nom);
-			///
+			
 				pstmt.executeUpdate();
 		}
 		catch (SQLException e)
@@ -344,7 +343,76 @@ public class txnscript
 		return result ;
     }
 	
+*/
+	////////////////////////////
+	
+	// fonction existante refactorée pour EXB1613
+    public static String updateVille (Integer id, String nom, Integer codePostal)
+    {
+        String result = "" ;
 
+		String sql = "UPDATE Villes SET nom = ?, code_postal = ? WHERE id = ?" ;
+		if ( id == null )
+		{
+			result = updateVilleByName ( nom, codePostal ) ;
+		}
+		else
+		{
+			String sql = "UPDATE Villes SET nom = ?, code_postal = ? WHERE id = ?" ;
+
+			try
+			{
+					PreparedStatement pstmt = cnx.prepareStatement(sql) ;
+					pstmt.setString(1, nom);
+					pstmt.setDouble(2, codePostal);
+					pstmt.setInt(3, id);
+					pstmt.executeUpdate();
+			}
+			catch (SQLException e)
+			{
+				System.out.println(e.getMessage());
+			}
+		}
+
+		result = result + id ;
+		result = result + "/" + codePostal ;
+		result = result + "/" + nom ;
+		result = result + saut_de_ligne ;		
+		return result ;
+    }
+
+
+
+    // creation fonction pour EXB1613
+    public static String updateVilleByName (String nom, Integer codePostal)
+    {
+        String result = "" ;
+		String sql = "UPDATE Villes SET code_postal = ? WHERE nom = ?" ;
+
+		try
+		{
+				PreparedStatement pstmt = cnx.prepareStatement(sql) ;
+				pstmt.setString(1, nom);
+				pstmt.setDouble(2, codePostal);
+				pstmt.setInt(3, id);
+				pstmt.setDouble(1, codePostal);
+				pstmt.setString(2, nom);
+				pstmt.executeUpdate();
+		}
+		catch (SQLException e)
+		{
+			System.out.println(e.getMessage());
+		}
+
+		result = result + id ;
+		result = result + "/" + codePostal ;
+		result = result + "/" + nom ;
+		result = result + saut_de_ligne ;		
+
+		return result ;
+    }
+	
+	////////////////////////////
 	
 	
     public static String close()
